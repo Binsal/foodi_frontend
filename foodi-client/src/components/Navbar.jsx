@@ -1,9 +1,31 @@
-import React from 'react'
-import logo from "../../public/logo.png"
+import React, { useContext, useEffect, useState } from "react";
+import logo from "/logo.png";
+import { FaRegUser } from "react-icons/fa";
 
 const Navbar = () => {
+  const [isSticky, setSticky] = useState(false);
 
-const navItems = (
+  // const {user} = useContext(AuthContext);
+  // console.log(user)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      if (offset > 0) {
+        setSticky(true);
+      } else {
+        setSticky(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const navItems = (
     <>
       <li>
         <a className="text-green">Home</a>
@@ -50,7 +72,11 @@ const navItems = (
       className={`max-w-screen-2xl container mx-auto fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out`}
     >
       <div
-        className="navbar xl:px-24"
+        className={`navbar xl:px-24 ${
+          isSticky
+            ? "shadow-md bg-base-100 transition-all duration-300 ease-in-out"
+            : ""
+        }`}
       >
         <div className="navbar-start">
           <div className="dropdown justify-between">
@@ -62,12 +88,12 @@ const navItems = (
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                {/* <path
+                <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M4 6h16M4 12h8m-8 6h16"
-                /> */}
+                />
               </svg>
             </label>
             <ul
@@ -81,9 +107,9 @@ const navItems = (
             <img src={logo} alt="" />
           </a>
         </div>
-        {/* <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navItems}</ul>
-        </div> */}
+        </div>
         <div className="navbar-end ">
           <button className="btn btn-ghost btn-circle hidden lg:flex">
             <svg
@@ -123,6 +149,18 @@ const navItems = (
               <span className="badge badge-sm indicator-item">8</span>
             </div>
           </label>
+
+          {/* login btn */}
+         {/* {
+          user? <Profile user={user}/> :  <button
+          onClick={() => document.getElementById("my_modal_5").showModal()}
+          className="btn flex items-center gap-2 rounded-full px-6 bg-green text-white"
+        >
+          <FaRegUser /> Login
+        </button>
+         } */}
+          
+          {/* <Modal/> */}
         </div>
       </div>
     </header>
@@ -130,4 +168,3 @@ const navItems = (
 };
 
 export default Navbar;
-
