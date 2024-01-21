@@ -5,11 +5,15 @@ import Footer from "../components/Footer";
 
 const Main = ()=>{
     return(
-        <>
-            {/* <Navbar/> */}
-            <Outlet/>
-            <Footer/>
-        </>
+        <div className="bg-prigmayBG">
+        <div>
+            <Navbar />
+            <div className="min-h-screen">
+            <Outlet />
+            </div>
+            <Footer />
+       </div>
+    </div>
     )
 }
 
