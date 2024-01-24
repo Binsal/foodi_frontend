@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
-// import { AuthContext } from "../contexts/AuthProvider";
+import { AuthContext } from "../contexts/AuthProvider";
 const Modal = () => {
     const {
         register,
@@ -10,7 +10,7 @@ const Modal = () => {
         formState: { errors },
       } = useForm();
     
-    // const {signUpWithGmail, login} = useContext(AuthContext);
+    const {signUpWithGmail, login} = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState("");
 
     // redirecting to home page or specifig page
@@ -22,7 +22,7 @@ const Modal = () => {
   const onSubmit = (data) => {
     const email = data.email;
     const password = data.password;
-    // console.log(email, password)
+    console.log(email, password)
     login(email, password).then((result) => {
       const user = result.user;
       alert("Login successfull");

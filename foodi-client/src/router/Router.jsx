@@ -7,6 +7,7 @@ import {
 import Home from "../pages/home/home";
 import Menu from "../pages/shop/Menu";
 import Signup from "../components/Signup";
+import UpdateProfile from "../pages/dashboard/UpdateProfile";
 
   const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ import Signup from "../components/Signup";
        {
         path:"/menu",
         element:<Menu/>
+       },
+       {
+        path:"/update-profile",
+        element:<UpdateProfile/>
        }
       ]
     },

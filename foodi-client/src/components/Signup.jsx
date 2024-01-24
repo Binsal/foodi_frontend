@@ -3,7 +3,7 @@ import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import Modal from "./Modal";
-
+import { AuthContext } from "../contexts/AuthProvider";
 
 const Signup = () => {
     const {
@@ -12,7 +12,7 @@ const Signup = () => {
         formState: { errors },
       } = useForm();
 
-    //   const {createUser, login} = useContext(AuthContext);
+      const {createUser, login} = useContext(AuthContext);
           // redirecting to home page or specifig page
     const location = useLocation();
     const navigate = useNavigate();
