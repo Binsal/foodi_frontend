@@ -14,7 +14,7 @@ const Menu = () => {
     // Fetch data from the backend
     const fetchData = async () => {
       try {
-        const response = await fetch("/menu.json");
+        const response = await fetch("http://localhost:6001/menu");
         const data = await response.json();
         setMenu(data);
         setFilteredItems(data); // Initially, display all items
@@ -87,7 +87,7 @@ const Menu = () => {
         <div className="py-48 flex flex-col items-center justify-center">
           {/* content */}
           <div className=" text-center px-4 space-y-7">
-            <h2 className="md:text-5xl text-4xl font-bold md:leading-snug leading-snug">
+            <h2 className="text-black md:text-5xl text-4xl font-bold md:leading-snug leading-snug">
               For the Love of Delicious <span className="text-green">Food</span>
             </h2>
             <p className="text-[#4A4A4A] text-xl md:w-4/5 mx-auto">

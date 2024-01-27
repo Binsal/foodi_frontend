@@ -8,6 +8,7 @@ import Home from "../pages/home/home";
 import Menu from "../pages/shop/Menu";
 import Signup from "../components/Signup";
 import UpdateProfile from "../pages/dashboard/UpdateProfile";
+import CartPage from "../pages/shop/CartPage";
 
   const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ import UpdateProfile from "../pages/dashboard/UpdateProfile";
        {
         path:"/update-profile",
         element:<UpdateProfile/>
+       },
+       {
+        path:"/cart-page",
+        element:<CartPage/>
        }
       ]
     },
